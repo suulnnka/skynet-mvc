@@ -33,4 +33,5 @@ skynet.start(function()
 		skynet.send(agent, "lua", id)
 		stack.push(agent)
 	end)
+	
 end)

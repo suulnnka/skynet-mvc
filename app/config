@@ -1,6 +1,8 @@
 -- daemon = "./skynet.pid"
 -- logger = "./skynet.log"
 
+static_path = "app/static/"
+
 root = "./"
 thread = 8
 harbor = 0
