@@ -1,5 +1,5 @@
-daemon = "./skynet.pid"
-logger = "./skynet.log"
+--daemon = "./skynet.pid"
+--logger = "./skynet.log"
 
 static_path = "app/static/"
 view_path = "app/view/"

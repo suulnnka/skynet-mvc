@@ -7,6 +7,12 @@ function func.change_sign_bonus()
 	return "succ"
 end
 
+function func.login(_,__,name)
+	
+	return name
+	
+end
+
 function func.static(header,body,file_name)
 	local file = staticfile[file_name]
 	if file then

@@ -1,37 +1,26 @@
 local skynet = require "skynet"
 local socket = require "socket"
 
-local function new_stack()
-	local stack = {}
-	local op = {}
-	
-	op.push = function(obj)
-		table.insert(stack,obj)
-	end
-	
-	op.pop = function()
-		if #stack == 0 then
-			return nil
-		end
-		return table.remove(stack)
-	end
-	
-	return op
-end
+local MAX_AGENT = tonumber(skynet.getenv("thread"))
+
+-- TODO 生产者消费者模型
 
 skynet.start(function()
 
-	local stack = new_stack()
-
+	local agent = {}
+	local start = 1
+	for i = 1,MAX_AGENT do
+		agent[i] = skynet.newservice("Web")
+	end
 	local id = socket.listen("0.0.0.0",8080)
 	skynet.error("Listen web port",8080)
 	socket.start(id , function(id, addr)
-		local agent = stack.pop() 
-		if not agent then
-			agent = skynet.newservice("Web")
+		skynet.send(agent[start], "lua", id)
+		if start == MAX_AGENT then
+			start = 1
+		else
+			start = start + 1
 		end
-		skynet.send(agent, "lua", id)
-		stack.push(agent)
 	end)
 	
 end)

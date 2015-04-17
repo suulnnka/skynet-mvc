@@ -1,5 +1,6 @@
 return {
 
+{"^/login/([^/]+)/$","login"},
 {"^/notify/change_sign_bonus/$","change_sign_bonus"},
 {"^/static/([^/]+)/$","static"},
 {"^/test/$","test"},
