@@ -14,7 +14,7 @@ local function pack(a,b,...)
 	return a,table.pack(...)
 end
 
-function selector.selectAndRun(path,body)
+function selector.selectAndRun(path,header,body)
 	if string.sub(path,-1,-1) ~= "/" then
 		path = path .. "/"
 	end
@@ -23,7 +23,7 @@ function selector.selectAndRun(path,body)
 		if check then
 			local func = model[v.model]
 			if func then
-				return func(body,table.unpack(args))
+				return func(header,body,table.unpack(args))
 			else
 				return "no function error"
 			end

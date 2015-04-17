@@ -24,7 +24,7 @@ skynet.start(function()
 			else
 				local path, query = urllib.parse(url)
 				
-				local msg = selector.selectAndRun(path,body)
+				local msg = selector.selectAndRun(path,header,body)
 				
 				response(id, code, msg)
 			end

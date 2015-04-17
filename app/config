@@ -2,6 +2,7 @@
 -- logger = "./skynet.log"
 
 static_path = "app/static/"
+view_path = "app/view/"
 
 root = "./"
 thread = 8

@@ -13,7 +13,7 @@ local M = {}
 
 ----------------------------------------------------------------------------
 -- function to do output
-local outfunc = "io.write"
+local outfunc = "write"
 -- accepts the old expression field: `$| <Lua expression> |$'
 local compatmode = true
 
