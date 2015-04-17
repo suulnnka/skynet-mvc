@@ -1,27 +1,28 @@
 local staticfile = require "staticfile"
 
-local model = {}
+local func = {}
 
-function model.change_sign_bonus()
+function func.change_sign_bonus()
 	return "succ"
 end
 
-function model.static(body,file_name)
+function func.static(body,file_name)
 	local file = staticfile[file_name]
 	if file then
 		return file
-	else
-		return model.default_function()
 	end
+	return func.default_function()
 end
 
-function model.default_function()
+function func.default_function()
 	return "404"
 end
 
-function model.fuck(body,who)
+function func.fuck(body,who)
 	-- body 需要json解析
 	return who
 end
+
+local model = setmetatable({},{__index = func})
 
 return model
