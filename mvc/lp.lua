@@ -15,7 +15,7 @@ local M = {}
 -- function to do output
 local outfunc = "write"
 -- accepts the old expression field: `$| <Lua expression> |$'
-local compatmode = true
+local compatmode = false
 
 --
 -- Builds a piece of Lua code which outputs the (part of the) given string.
